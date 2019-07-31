@@ -14,22 +14,23 @@
           <nuxt-link to="/air">国内机票</nuxt-link>
         </el-row>
         <!-- 注册登录 -->
-        <div v-if="false">
+        <div v-if="!$store.state.user.userInfo.token">
           <nuxt-link to="/user/login">注册登录</nuxt-link>
         </div>
+        <!-- 登陆之后的布局 -->
         <div v-else>
           <el-dropdown>
             <span class="el-dropdown-link">
               <img src="http://157.122.54.189:9095/assets/images/avatar.jpg" />
-              魂殇幽影
+              
+              {{$store.state.user.userInfo.user.nickname}}
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>个人中心</el-dropdown-item>
-              <el-dropdown-item>退出</el-dropdown-item>
+              <el-dropdown-item @click.native="handleLogoout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <nuxt-link to="/user/login" class="accoun-link">注册/登录</nuxt-link>
         </div>
       </el-row>
     </div>
@@ -38,7 +39,11 @@
 <script>
 export default {
   methods: {
-    handleLogoout() {}
+    handleLogoout() {
+     //清楚userinfo的数据
+       this.$store.commit("user/clearUserInfo");
+       this.$router.push('/')
+    }
   }
 };
 </script>

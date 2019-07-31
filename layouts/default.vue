@@ -7,16 +7,20 @@
 </template>
 
 <script>
+// 导入头部组件,文件扩展名可以省略
 import Header  from "@/components/header";
 import Footer from "@/components/footer";
 export default {
+  //注册组件
   components: {
     Header,
     Footer
   }
 };
 </script>
+
 <style lang="less">
+// 公共样式 不要加scoped
 * {
   margin: 0;
   padding: 0;

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="block">
-      <span class="demonstration"></span>
+   
+      <!-- <span class="demonstration"></span> -->
       <el-carousel :interval="5000" arrow="always">
         <el-carousel-item v-for="(item,index) in banners" :key="index">
           <div
@@ -11,7 +11,7 @@
           ></div>
         </el-carousel-item>
       </el-carousel>
-
+        <!-- 搜索框,真好看 -->
       <div class="banner-content">
         <div class="search-bar">
 
@@ -34,7 +34,7 @@
           
         </div>
       </div>
-    </div>
+   
   </div>
 </template>
 <script>
@@ -51,6 +51,7 @@ export default {
     };
   },
   methods: {
+    //把index的值赋给current
     handleClick(index) {
       if (index==0) {
         this.$router.push("/post");
@@ -65,6 +66,7 @@ export default {
     }
   },
   mounted() {
+    //$开头的属性是Vue的实例对象约定用的
     this.$axios({
       url: "/scenics/banners"
     }).then(res => {
