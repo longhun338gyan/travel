@@ -68,13 +68,9 @@ button {
 }
 /*取消链接的下划线*/
 a {
-  color: #666;
   text-decoration: none;
 }
 
-a:hover {
-  color: #e33333;
-}
 
 input,
 img,

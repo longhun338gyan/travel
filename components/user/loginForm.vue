@@ -37,7 +37,7 @@ export default {
   methods: {
     //提交登录
       handleLoginSubmit(){
-      console.log(this.form)
+      // console.log(this.form)
       this.$refs.form.validate(valid=>{
         if (valid) {
           //提交登录接口
@@ -49,6 +49,7 @@ export default {
             this.$store.commit("user/setUserInfo", res.data)
             //跳转到首页
             this.$router.push('/')
+            // this.$touter.back()
           })
         }
       })
